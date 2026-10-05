@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 240" role="img" aria-labelledby="title desc">
+  <title id="title">UR Sketch Logo 02 — Compass Construction</title><desc id="desc">An architectural UR mark shown with delicate compass circles and angled layout guides.</desc>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="83" cy="103" r="68" stroke="#bd965b" stroke-width="1.2" opacity=".62" stroke-dasharray="2 5"/>
+    <circle cx="83" cy="103" r="48" stroke="#343733" stroke-width="1" opacity=".65"/>
+    <path d="M11 103h144M83 26v150M34 52l100 101M134 51 34 154" stroke="#77756f" stroke-width=".8" opacity=".48"/>
+    <path d="M49 61v44c0 20 10 31 27 31s27-12 27-31V61" stroke="#20231f" stroke-width="6.5"/>
+    <path d="M82 68h17c12 0 19 6 19 16s-7 16-19 16H82v36m15-36 29 36" stroke="#bd965b" stroke-width="5.7"/>
+    <path d="M46 59v47c0 21 12 34 30 34 20 0 30-14 30-35V60" stroke="#20231f" stroke-width="1.5" opacity=".5"/>
+    <path d="M21 184h124" stroke="#bd965b" stroke-width="1.4"/>
+  </g>
+  <text x="202" y="88" fill="#20231f" font-family="Georgia,serif" font-size="38" letter-spacing="2">UDHAYASANKAR R</text>
+  <text x="204" y="125" fill="#77756f" font-family="Arial,sans-serif" font-size="10" letter-spacing="3.5">STRATEGY · CREATIVE · LEAD GENERATION</text>
+</svg>

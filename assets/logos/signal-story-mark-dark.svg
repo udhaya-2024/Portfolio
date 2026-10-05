@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="10 20 225 170" role="img" aria-labelledby="title">
+  <title id="title">Signal &amp; Story campaign-to-story mark</title>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M27 151h27l15-30 15 16 17-58 17 72 16-36 17 19h27" stroke="#eee8dc" stroke-width="5"/>
+    <path d="M28 148h26l15-27 15 14 17-56 17 70 16-34 17 18h24" stroke="#c6a46a" stroke-width="1.7"/>
+    <path d="M191 134v-66h36m-36 66h36" stroke="#eee8dc" stroke-width="4"/>
+    <path d="M222 74h-23v57h23" stroke="#c6a46a" stroke-width="2"/>
+    <path d="M205 83h9m-9 10h9m-4 52 8 8 9-9" stroke="#c6a46a" stroke-width="2.5"/>
+  </g>
+</svg>

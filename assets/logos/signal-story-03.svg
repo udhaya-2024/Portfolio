@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 230" role="img" aria-labelledby="title desc">
+  <title id="title">Signal &amp; Story — The Editorial Seal</title><desc id="desc">A hand-drafted circular stamp combines signal arcs, a quote and an open story frame.</desc>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="111" cy="112" r="79" stroke="#b99a66" stroke-width="1.5" stroke-dasharray="1 5"/>
+    <circle cx="111" cy="112" r="70" stroke="#262822" stroke-width="1.5"/>
+    <path d="M56 94c9-14 20-21 35-21m-29 35c6-9 14-13 24-13" stroke="#b99a66" stroke-width="3"/>
+    <path d="M137 73h25v27h-13l-10 11" stroke="#262822" stroke-width="3.2"/>
+    <path d="M80 133c11 12 22 18 32 18s21-6 32-18M79 138c11 12 22 17 33 17s22-5 33-17" stroke="#262822" stroke-width="2.5"/>
+    <path d="M96 111h30" stroke="#b99a66" stroke-width="2"/>
+    <circle cx="111" cy="112" r="3" fill="#b99a66" stroke="none"/>
+  </g>
+  <text x="227" y="108" fill="#262822" font-family="Georgia,serif" font-size="51" letter-spacing="-.8">Signal <tspan fill="#b99a66">&amp;</tspan> Story</text>
+  <path d="M231 128h313" stroke="#b99a66" stroke-width="1.2"/>
+  <text x="232" y="152" fill="#77766e" font-family="Arial,sans-serif" font-size="11" letter-spacing="4">STRATEGY · CREATIVE · CONNECTION</text>
+</svg>

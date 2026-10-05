@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 220" role="img" aria-labelledby="title desc">
+  <title id="title">Udhayasankar R — Rising Stroke Monogram</title>
+  <desc id="desc">A compact angular UR mark with a single rising gold stroke suggesting forward movement.</desc>
+  <g fill="none" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M28 34v78c0 31 17 49 47 49s47-18 47-49V34" stroke="#eee8dc" stroke-width="10"/>
+    <path d="M82 51h31c18 0 29 9 29 25s-11 25-29 25H82v60" stroke="#c6a46a" stroke-width="8"/>
+    <path d="m82 118 47-50m-13 0h13v13" stroke="#c6a46a" stroke-width="5"/>
+    <circle cx="145" cy="34" r="4" fill="#c6a46a" stroke="none"/>
+  </g>
+  <text x="214" y="91" fill="#eee8dc" font-family="Georgia,serif" font-size="41" letter-spacing="2.5">Udhayasankar R</text>
+  <path d="M216 109h306" stroke="#c6a46a" stroke-width="1.5"/>
+  <text x="216" y="133" fill="#b1aa9d" font-family="Arial,sans-serif" font-size="10" letter-spacing="4">DIGITAL MARKETING · LEAD GENERATION</text>
+</svg>

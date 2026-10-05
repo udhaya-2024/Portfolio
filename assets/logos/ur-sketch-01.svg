@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 240" role="img" aria-labelledby="title desc">
+  <title id="title">UR Sketch Logo 01 — Hand-drawn Interlock</title><desc id="desc">A hand-drawn U and R monogram with graphite construction strokes and a warm gold accent.</desc>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M34 37c-1 27 .4 59-.4 88-.5 22 13 37 34 38 22 1 38-15 38-39l.2-86" stroke="#d9d0c1" stroke-width="8" opacity=".55" transform="rotate(-1 70 100)"/>
+    <path d="M30 34c.7 28-.2 62 .7 91 .7 25 15 41 38 41 25 0 41-17 41-43V36" stroke="#20231f" stroke-width="7" transform="rotate(.7 70 100)"/>
+    <path d="M77 51c15-.3 30-1 43 .4 14 1.4 22 9.6 22 22.6.1 14-9 23-23 24l-41 .2m24 0c15 18 29 38 42 58" stroke="#20231f" stroke-width="6.5"/>
+    <path d="M80 48c14 1 27-.3 39 1 17 1 27 10 27 25 0 16-11 27-27 27H81m27 0 42 60" stroke="#bd965b" stroke-width="2.5"/>
+    <path d="m128 43 7-8 8 7M37 30l-7 7 8 6" stroke="#bd965b" stroke-width="1.7"/>
+  </g>
+  <path d="M206 91h42" stroke="#bd965b" stroke-width="1.4"/>
+  <text x="206" y="78" fill="#20231f" font-family="Georgia,serif" font-size="40" letter-spacing="2">UDHAYASANKAR R</text>
+  <text x="208" y="116" fill="#77756f" font-family="Arial,sans-serif" font-size="10" letter-spacing="4">DIGITAL MARKETING EXECUTIVE</text>
+</svg>

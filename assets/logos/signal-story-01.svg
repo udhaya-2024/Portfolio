@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 230" role="img" aria-labelledby="title desc">
+  <title id="title">Signal &amp; Story — The Echo Mark</title><desc id="desc">A hand-drawn signal echo curls into a story quotation beside the Signal and Story wordmark.</desc>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M69 39c-23 18-36 39-36 68s13 51 36 68" stroke="#262822" stroke-width="5"/>
+    <path d="M74 46c-19 16-29 36-29 61s10 45 29 61" stroke="#b99a66" stroke-width="2.4"/>
+    <path d="M91 61c-12 12-18 27-18 46s6 34 18 46" stroke="#262822" stroke-width="4"/>
+    <path d="M108 77c-7 8-11 18-11 30s4 22 11 30" stroke="#b99a66" stroke-width="2.5"/>
+    <path d="M129 57c-19 11-29 28-29 50 0 23 13 40 35 48" stroke="#262822" stroke-width="5"/>
+    <path d="M132 58c-17 10-25 26-25 48 0 21 12 36 33 44" stroke="#262822" stroke-width="1.4" opacity=".5"/>
+    <path d="m130 149 9 11 11-10" stroke="#b99a66" stroke-width="3"/>
+    <circle cx="145" cy="65" r="3.5" fill="#b99a66" stroke="none"/>
+  </g>
+  <text x="204" y="110" fill="#262822" font-family="Georgia,serif" font-size="53" letter-spacing="-.7">Signal <tspan fill="#b99a66">&amp;</tspan> Story</text>
+  <path d="M207 130h313" stroke="#b99a66" stroke-width="1.4"/>
+  <text x="208" y="155" fill="#77766e" font-family="Arial,sans-serif" font-size="11" letter-spacing="4">CAMPAIGN PERFORMANCE · CREATIVE CONTENT</text>
+</svg>

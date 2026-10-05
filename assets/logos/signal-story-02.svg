@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 230" role="img" aria-labelledby="title desc">
+  <title id="title">Signal &amp; Story — The Storyline Mark</title><desc id="desc">A continuous campaign line becomes the outline of a story frame, paired with the brand name.</desc>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M27 151h27l15-30 15 16 17-58 17 72 16-36 17 19h27" stroke="#262822" stroke-width="5"/>
+    <path d="M28 148h26l15-27 15 14 17-56 17 70 16-34 17 18h24" stroke="#b99a66" stroke-width="1.7"/>
+    <path d="M191 134v-66h36m-36 66h36" stroke="#262822" stroke-width="4"/>
+    <path d="M222 74h-23v57h23" stroke="#b99a66" stroke-width="2"/>
+    <path d="M205 83h9m-9 10h9" stroke="#262822" stroke-width="2.5"/>
+    <path d="m210 145 8 8 9-9" stroke="#b99a66" stroke-width="2.5"/>
+  </g>
+  <text x="270" y="105" fill="#262822" font-family="Georgia,serif" font-size="50" letter-spacing="-.8">Signal <tspan fill="#b99a66">&amp;</tspan> Story</text>
+  <text x="273" y="141" fill="#77766e" font-family="Arial,sans-serif" font-size="11" letter-spacing="4">THOUGHTFUL CAMPAIGNS. STORIES THAT CONNECT.</text>
+</svg>
