@@ -117,6 +117,61 @@ const updateProgress = () => {
 window.addEventListener('scroll', updateProgress, { passive: true });
 updateProgress();
 
+// Low-amplitude camera drift and card parallax add motion without hiding content.
+const cinematicHero = document.querySelector('.hero');
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+let motionFrame = 0;
+let pointerX = 0;
+let pointerY = 0;
+
+function paintCinematicMotion() {
+  motionFrame = 0;
+  if (!cinematicHero || reducedMotion.matches) return;
+  const bounds = cinematicHero.getBoundingClientRect();
+  const inside = bounds.bottom > 0 && bounds.top < window.innerHeight;
+  const heroProgress = Math.max(-1, Math.min(1, (window.innerHeight - bounds.top) / (window.innerHeight + bounds.height) - .5));
+  cinematicHero.style.setProperty('--hero-drift', `${heroProgress * 28}px`);
+  if (inside && window.matchMedia('(pointer: fine)').matches) {
+    const x = Math.max(0, Math.min(100, (pointerX - bounds.left) / bounds.width * 100));
+    const y = Math.max(0, Math.min(100, (pointerY - bounds.top) / bounds.height * 100));
+    cinematicHero.style.setProperty('--pointer-x', `${x}%`);
+    cinematicHero.style.setProperty('--pointer-y', `${y}%`);
+    cinematicHero.style.setProperty('--glow-x', `${(x - 72) * .34}px`);
+    cinematicHero.style.setProperty('--glow-y', `${(y - 45) * .24}px`);
+  }
+}
+
+function requestCinematicPaint() {
+  if (!motionFrame) motionFrame = requestAnimationFrame(paintCinematicMotion);
+}
+
+window.addEventListener('scroll', () => {
+  requestCinematicPaint();
+}, { passive: true });
+window.addEventListener('resize', requestCinematicPaint, { passive: true });
+window.addEventListener('pointermove', event => {
+  if (event.pointerType !== 'mouse') return;
+  pointerX = event.clientX;
+  pointerY = event.clientY;
+  requestCinematicPaint();
+}, { passive: true });
+
+document.querySelectorAll('.service-card').forEach(card => {
+  card.addEventListener('pointermove', event => {
+    if (reducedMotion.matches || event.pointerType !== 'mouse' || !window.matchMedia('(min-width: 901px)').matches) return;
+    const rect = card.getBoundingClientRect();
+    const x = (event.clientX - rect.left) / rect.width - .5;
+    const y = (event.clientY - rect.top) / rect.height - .5;
+    card.style.setProperty('--card-tilt-x', `${x * 3.2}deg`);
+    card.style.setProperty('--card-tilt-y', `${y * -3.2}deg`);
+  });
+  card.addEventListener('pointerleave', () => {
+    card.style.setProperty('--card-tilt-x', '0deg');
+    card.style.setProperty('--card-tilt-y', '0deg');
+  });
+});
+requestCinematicPaint();
+
 const navLinks = [...document.querySelectorAll('.nav a[href^="#"]')];
 const sectionObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
