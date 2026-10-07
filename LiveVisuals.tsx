@@ -34,17 +34,40 @@ export function LeadMotion() {
 export function ProfileAtmosphere() {
   const [pointer, setPointer] = useState({ x: 0, y: 0 });
   useEffect(() => {
-    const fine = window.matchMedia('(pointer: fine)').matches;
-    if (!fine) return;
-    const move = (event: PointerEvent) => {
-      const target = document.querySelector('.about-visual')?.getBoundingClientRect();
-      if (!target) return;
-      setPointer({ x: (event.clientX - target.left) / target.width - .5, y: (event.clientY - target.top) / target.height - .5 });
+    const finePointer = window.matchMedia('(pointer: fine)');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const target = document.querySelector<HTMLElement>('.about-visual');
+    const image = target?.querySelector<HTMLImageElement>('.profile-photo');
+    if (!target || !image) return;
+
+    const reset = () => {
+      setPointer({ x: 0, y: 0 });
+      image.style.setProperty('--portrait-x', '0px');
+      image.style.setProperty('--portrait-y', '0px');
     };
-    window.addEventListener('pointermove', move, { passive: true });
-    return () => window.removeEventListener('pointermove', move);
+    const move = (event: PointerEvent) => {
+      if (!finePointer.matches || reducedMotion.matches || event.pointerType === 'touch') return;
+      const bounds = target.getBoundingClientRect();
+      const x = Math.max(-1, Math.min(1, ((event.clientX - bounds.left) / bounds.width - .5) * 2));
+      const y = Math.max(-1, Math.min(1, ((event.clientY - bounds.top) / bounds.height - .5) * 2));
+      setPointer({ x, y });
+      image.style.setProperty('--portrait-x', `${-x * 9}px`);
+      image.style.setProperty('--portrait-y', `${-y * 9}px`);
+    };
+    const onMotionPreferenceChange = () => reset();
+
+    target.addEventListener('pointermove', move, { passive: true });
+    target.addEventListener('pointerleave', reset);
+    reducedMotion.addEventListener('change', onMotionPreferenceChange);
+    finePointer.addEventListener('change', onMotionPreferenceChange);
+    return () => {
+      target.removeEventListener('pointermove', move);
+      target.removeEventListener('pointerleave', reset);
+      reducedMotion.removeEventListener('change', onMotionPreferenceChange);
+      finePointer.removeEventListener('change', onMotionPreferenceChange);
+    };
   }, []);
-  return <div className="profile-atmosphere" style={{ '--px': `${pointer.x * 22}px`, '--py': `${pointer.y * 22}px` } as React.CSSProperties} aria-hidden="true">
+  return <div className="profile-atmosphere" style={{ '--px': `${pointer.x * 12}px`, '--py': `${pointer.y * 12}px` } as React.CSSProperties} aria-hidden="true">
     <div className="profile-halo" /><div className="profile-ring ring-one" /><div className="profile-ring ring-two" /><div className="profile-ring ring-three" />
     <span className="profile-orbit-tag tag-meta">META ADS <i>✳</i></span><span className="profile-orbit-tag tag-story">STORY → SIGNAL</span><span className="profile-orbit-tag tag-leads">LEAD GENERATION <i>↗</i></span>
     <div className="profile-crosshair">S&amp;S</div>

@@ -8,6 +8,7 @@
   --dark: #080a08;
 }
 
+html, body { overflow-x: hidden; }
 body { background: var(--paper); color: var(--ink); }
 .header {
   background: rgb(16 18 15 / 92%);
@@ -282,11 +283,15 @@ body { background: var(--paper); color: var(--ink); }
 .hero.section-wrap {
   width: 100%;
   max-width: none;
-  min-height: min(820px, calc(100svh - 88px));
+  min-height: calc(100vh - 88px);
+  min-height: calc(100dvh - 88px);
   margin: 0;
   padding: clamp(58px, 8vw, 110px) clamp(24px, 7vw, 112px) 88px;
   grid-template-columns: minmax(0, 1fr);
-  background: #080e0e url("assets/marketing-campaign-hero.png") center 53% / cover no-repeat;
+  background:
+    radial-gradient(ellipse at 76% 44%, #287f7040 0%, transparent 36%),
+    radial-gradient(ellipse at 82% 72%, #d0ad7018 0%, transparent 38%),
+    linear-gradient(125deg, #07100f 0%, #0c1b18 52%, #080d0c 100%);
   position: relative;
   isolation: isolate;
 }
@@ -347,11 +352,16 @@ body { background: var(--paper); color: var(--ink); }
 .services .service-arrow { right: 24px; bottom: 22px; font-size: 18px; }
 
 @media (max-width: 900px) {
-  .hero.section-wrap { min-height: 720px; padding-inline: 6vw; background-position: 59% center; }
+  .hero.section-wrap { min-height: calc(100vh - 88px); min-height: calc(100dvh - 88px); padding-inline: 6vw; background-position: 59% center; }
   .services .service-card { min-height: 350px; }
 }
 @media (max-width: 650px) {
-  .hero.section-wrap { min-height: 750px; padding: 58px 22px 76px; background-position: 61% center; }
+  .hero.section-wrap {
+    min-height: calc(100vh - 70px);
+    min-height: calc(100dvh - 70px);
+    padding: clamp(44px, 7svh, 58px) max(18px, env(safe-area-inset-left)) calc(76px + env(safe-area-inset-bottom)) max(18px, env(safe-area-inset-right));
+    background-position: 61% center;
+  }
   .hero.section-wrap:before { background: linear-gradient(90deg, #080d0deb 0%, #080d0dcc 54%, #080d0d88 100%), linear-gradient(0deg, #080d0dd9, transparent 65%); }
   .hero .hero-copy { max-width: 100%; }
   .services .section-heading { margin-bottom: 32px; }
@@ -359,6 +369,10 @@ body { background: var(--paper); color: var(--ink); }
   .services .service-icon { margin-top: 24px; }
   .services .service-card h3, .services .service-card p { min-height: 0; }
   .campaign-cta { margin-top: 22px; }
+}
+@media (max-width: 380px) {
+  .services .service-grid { grid-template-columns: 1fr; }
+  .services .service-card { padding-inline: 22px; }
 }
 
 /* Use the selected brand lockup consistently inside the profile. */

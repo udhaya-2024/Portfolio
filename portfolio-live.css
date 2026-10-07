@@ -5,6 +5,40 @@
 .activity-phone { position:absolute; width:clamp(205px,20vw,290px); height:clamp(390px,43vw,590px); right:24%; top:17%; padding:11px; border-radius:42px; border:1px solid #a7dad273; background:linear-gradient(135deg,#182b2bcc,#08100fef 65%,#283d37); box-shadow:0 0 0 4px #0009, 0 40px 100px #000a, inset 0 0 24px #8afbe21a; transform:rotate(-8deg); animation:phoneHover 7s ease-in-out infinite; }
 .phone-camera { position:absolute; z-index:2; left:50%; top:15px; transform:translateX(-50%); width:34%; height:18px; border-radius:20px; background:#030707; }
 .phone-screen { position:absolute; inset:10px; border-radius:33px; overflow:hidden; padding:56px 17px 16px; background:radial-gradient(ellipse at 55% 39%,#15443c,#0a1816 48%,#070d0c); border:1px solid #ffffff1a; }
+@media (max-width: 900px) {
+  .activity-phone { right: min(18%, 94px); top: 18%; width: clamp(170px, 31vw, 260px); height: clamp(300px, 50vw, 470px); }
+  .activity-float-like { right: 5%; top: 28%; }
+  .activity-float-chat { right: 30%; top: 48%; }
+  .activity-float-person { right: 8%; top: 66%; }
+  .activity-notification { right: 4%; bottom: 18%; width: min(300px, 42vw); }
+  .activity-disclaimer { right: 7%; bottom: 10%; }
+}
+
+@media (max-width: 650px) {
+  .hero.section-wrap { overflow: hidden; }
+  .hero-glows { top: auto; bottom: clamp(64px, 9vh, 86px); height: min(23vh, 190px); overflow: visible; }
+  #hero-live-root, .activity-scene { overflow: visible; }
+  .activity-scene { transform: scale(.9); transform-origin: center center; }
+  .activity-phone { right: 12%; top: 1%; width: clamp(110px, 17.3vh, 142px); height: clamp(194px, 32vh, 230px); }
+  .activity-float-like { right: 7%; top: 5%; transform: scale(.72); }
+  .activity-float-chat { right: 27%; top: 40%; transform: scale(.68); }
+  .activity-float-person { right: 8%; top: 63%; transform: scale(.68); }
+  .activity-notification { left: 6%; right: 6%; bottom: 17%; width: auto; max-width: 420px; padding: 12px; }
+  .activity-disclaimer { left: 10%; right: 10%; bottom: 1%; text-align: center; justify-content: center; }
+  .activity-orbit { width: 78vw; right: -10%; top: 25%; }
+  .orbit-b { width: 68vw; right: -3%; top: 29%; }
+}
+@media (max-width: 380px) {
+  .activity-phone { right: 10%; width: clamp(106px, 16.8vh, 132px); }
+  .activity-notification { left: 4%; right: 4%; }
+  .activity-notification div strong { font-size: 10px; }
+}
+@media (max-width: 650px) and (max-height: 680px) {
+  .hero-glows { height: 120px; bottom: 58px; }
+  .activity-phone { display: none; }
+  .activity-float-chat, .activity-float-person, .activity-notification, .activity-disclaimer { display: none; }
+  .activity-float-like { top:18%; right:11%; transform: scale(.58); }
+  }
 .phone-screen:before { content:""; position:absolute; inset:0; opacity:.22; background-image:linear-gradient(#b4e6d10b 1px,transparent 1px),linear-gradient(90deg,#b4e6d10b 1px,transparent 1px); background-size:22px 22px; mask-image:linear-gradient(transparent,#000); }
 .screen-kicker,.screen-tag { position:relative; color:#d1bb8b; font-size:7px; letter-spacing:.2em; }
 .screen-chart { position:absolute; left:15px; right:15px; bottom:42px; height:47%; border:1px solid #91ccbb28; border-radius:10px; background:linear-gradient(180deg,#1a3c3444,#09110fcc); overflow:hidden; }
@@ -31,6 +65,23 @@
 .profile-orbit-tag {position:absolute;z-index:2;padding:8px 10px;border:1px solid #d6bd7844;border-radius:2px;background:#101613b8;color:#e1d0a8;font-size:6px;letter-spacing:.14em;box-shadow:0 5px 22px #0005;backdrop-filter:blur(5px);animation:tagDrift 6s ease-in-out infinite;}.profile-orbit-tag i {color:#68d8c2;font-style:normal;}.tag-meta{top:17%;right:4%;}.tag-story{left:1%;top:56%;animation-delay:-3s}.tag-leads{right:5%;bottom:14%;animation-delay:-1.5s}.profile-crosshair {position:absolute;left:53%;top:48%;width:36px;height:36px;display:grid;place-items:center;border:1px solid #d5b7756b;border-radius:50%;color:#d5b775;font-size:8px;letter-spacing:.1em;box-shadow:0 0 22px #d5b7752e;animation:crosshairPulse 4s ease-in-out infinite;}
 @keyframes orbitScene {to{transform:rotateX(68deg) rotate(345deg)}}@keyframes phoneHover{0%,100%{translate:0 0;rotate:0deg}50%{translate:0 -13px;rotate:1deg}}@keyframes barPulse{to{filter:brightness(1.8);transform:scaleY(.76);transform-origin:bottom}}@keyframes drawLine{to{stroke-dashoffset:0}}@keyframes floatPill{0%,100%{translate:0 0}50%{translate:0 -13px}}@keyframes notificationIn{from{opacity:0;transform:translate3d(0,14px,0) scale(.97);filter:blur(5px)}to{opacity:1;transform:none;filter:none}}@keyframes notificationGlow{to{box-shadow:0 18px 65px #0009,0 0 36px #53d6c035}}@keyframes dotPulse{50%{box-shadow:0 0 0 5px #64e1bb2c,0 0 15px #64e1bb}}@keyframes scanWave{0%{left:-20%}70%,100%{left:115%}}@keyframes haloBreathe{to{opacity:.58;scale:1.12}}@keyframes tagDrift{50%{translate:0 -8px}}@keyframes crosshairPulse{50%{box-shadow:0 0 0 9px #d5b77512,0 0 35px #d5b77549}}
 @media(max-width:900px){.lead-proof{grid-template-columns:150px minmax(0,1fr);}.lead-proof #lead-live-root{grid-column:1/-1;grid-row:auto;min-height:100px}.lead-motion{min-height:100px}}
+<<<<<<< HEAD
 @media(max-width:760px){.activity-phone{width:180px;height:345px;right:12%;top:25%;opacity:.72}.activity-float-like{right:5%;top:39%;width:52px;height:52px}.activity-float-chat{right:29%;top:58%;width:61px;height:61px}.activity-float-person{right:7%;top:69%;width:43px;height:43px}.activity-notification{left:14px;right:14px;bottom:17%;width:auto;padding:10px;gap:8px}.activity-notification div strong{font-size:9px}.activity-disclaimer{left:14px;right:14px;bottom:11%;justify-content:center;font-size:5px;white-space:nowrap}.activity-orbit{width:78vw;right:-10%;top:25%}.orbit-b{width:68vw;right:-3%;top:29%}.tag-meta{right:0}.tag-story{left:-4%}.tag-leads{right:0}}
 @media(max-width:650px){.lead-proof{grid-template-columns:1fr;gap:10px}.lead-proof #lead-live-root{grid-column:1;grid-row:auto;min-height:110px}.lead-motion{min-height:104px}}
 @media(prefers-reduced-motion:reduce){.activity-orbit,.activity-phone,.activity-float,.activity-notification,.activity-live-dot,.lead-motion-head i,.wave-line,.wave-scan,.profile-halo,.profile-orbit-tag,.profile-crosshair,.screen-chart path,.screen-chart i{animation:none!important;transition:none!important}.activity-notification{opacity:1;filter:none}.wave-line{stroke-dashoffset:0}.activity-scene{opacity:.9}}
+=======
+@media(max-width:760px){.tag-meta{right:0}.tag-story{left:-4%}.tag-leads{right:0}}
+@media(max-width:650px){.lead-proof{grid-template-columns:1fr;gap:10px}.lead-proof #lead-live-root{grid-column:1;grid-row:auto;min-height:110px}.lead-motion{min-height:104px}}
+@media(prefers-reduced-motion:reduce){.activity-orbit,.activity-phone,.activity-float,.activity-notification,.activity-live-dot,.lead-motion-head i,.wave-line,.wave-scan,.profile-halo,.profile-orbit-tag,.profile-crosshair,.screen-chart path,.screen-chart i{animation:none!important;transition:none!important}.activity-notification{opacity:1;filter:none}.wave-line{stroke-dashoffset:0}.activity-scene{opacity:.9}}
+
+@media (max-width: 650px) {
+  .hero-glows .activity-notification { left: 6%; right: auto; width: 88%; }
+}
+
+@media (max-width: 650px) and (max-height: 680px) {
+  .hero-glows .activity-float-chat,
+  .hero-glows .activity-float-person,
+  .hero-glows .activity-notification,
+  .hero-glows .activity-disclaimer { display: none !important; }
+}
+>>>>>>> b41748e (Polish responsive portfolio visuals and motion)
