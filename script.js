@@ -131,6 +131,12 @@ function paintCinematicMotion() {
   const inside = bounds.bottom > 0 && bounds.top < window.innerHeight;
   const heroProgress = Math.max(-1, Math.min(1, (window.innerHeight - bounds.top) / (window.innerHeight + bounds.height) - .5));
   cinematicHero.style.setProperty('--hero-drift', `${heroProgress * 28}px`);
+  document.querySelectorAll('.project-still').forEach(still => {
+    const frame = still.parentElement.getBoundingClientRect();
+    if (frame.bottom < 0 || frame.top > window.innerHeight) return;
+    const progress = (window.innerHeight - frame.top) / (window.innerHeight + frame.height);
+    still.style.setProperty('--still-y', `${(progress - .5) * -38}px`);
+  });
   if (inside && window.matchMedia('(pointer: fine)').matches) {
     const x = Math.max(0, Math.min(100, (pointerX - bounds.left) / bounds.width * 100));
     const y = Math.max(0, Math.min(100, (pointerY - bounds.top) / bounds.height * 100));
