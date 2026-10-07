@@ -5,6 +5,115 @@
   --film-teal: #54d6c0;
 }
 
+/* Brief brand sting: a soft film aperture opens onto the hero. */
+.brand-intro {
+  position: fixed;
+  z-index: 1200;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 12px;
+  overflow: hidden;
+  color: #f5f0e4;
+  background: #090c0b;
+  animation: brandCurtain 1.25s 1.45s var(--motion-ease) forwards;
+  pointer-events: none;
+}
+.brand-intro:before,
+.brand-intro:after {
+  content: "";
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: min(78vw, 690px);
+  aspect-ratio: 1;
+  border: 1px solid #d0ad7038;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(.68);
+  animation: introOrbit 2.4s ease-out both;
+}
+.brand-intro:after { width: min(60vw, 520px); border-color: #54d6c02d; animation-delay: .12s; }
+.brand-intro img { width: 40px; height: 40px; object-fit: contain; opacity: 0; animation: introCopy .65s .15s ease-out forwards; }
+.brand-intro-name { font: 600 14px/1 var(--display); letter-spacing: .28em; opacity: 0; animation: introCopy .65s .26s ease-out forwards; }
+.brand-intro-name i { color: var(--film-gold); font-style: normal; }
+.brand-intro-caption { color: #aaa99d; font-size: 7px; letter-spacing: .32em; opacity: 0; animation: introCopy .65s .36s ease-out forwards; }
+.brand-intro-line { display: block; width: 0; height: 1px; margin-top: 7px; background: linear-gradient(90deg, var(--film-teal), var(--film-gold)); animation: introLine .6s .45s ease-out forwards; }
+body.intro-complete .brand-intro { display: none; }
+
+/* Make the current campaign stories feel playable, not like static thumbnails. */
+.project-brand-badge {
+  position: absolute;
+  z-index: 4;
+  top: clamp(18px, 2.2vw, 30px);
+  left: clamp(18px, 2.2vw, 30px);
+  width: 70px;
+  height: 70px;
+  padding: 4px;
+  border: 1px solid #d0ad707a;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #f8f8f5;
+  box-shadow: 0 8px 30px #0007;
+  transition: transform .55s var(--motion-ease), box-shadow .4s ease;
+}
+.project:hover .project-brand-badge { transform: rotate(-7deg) scale(1.06); box-shadow: 0 10px 36px #000b, 0 0 0 5px #d0ad7013; }
+.project-preview { position: absolute; z-index: 3; inset: 0; width: 100%; height: 100%; object-fit: cover; background: #090c0b; }
+.project-preview[hidden] { display: none; }
+.project-play {
+  position: absolute;
+  z-index: 4;
+  top: 50%; left: 50%;
+  display: grid;
+  justify-items: center;
+  gap: 9px;
+  padding: 0;
+  border: 0;
+  color: #f5f0e4;
+  background: transparent;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+}
+.project-play > span { display: grid; width: 62px; height: 62px; place-items: center; padding-left: 4px; border: 1px solid #f2ddb08a; border-radius: 50%; background: #1014109c; color: var(--film-gold); font-size: 15px; backdrop-filter: blur(8px); box-shadow: 0 0 0 8px #d0ad7012, 0 0 38px #d0ad7033; transition: transform .4s var(--motion-ease), background .3s, color .3s, box-shadow .3s; }
+.project-play:hover > span { transform: scale(1.12); background: var(--film-gold); color: #11120f; box-shadow: 0 0 0 12px #d0ad7016, 0 0 55px #d0ad7066; }
+.project-play small { font-size: 7px; letter-spacing: .2em; text-shadow: 0 2px 10px #000; }
+.project-visual.is-playing .project-still,
+.project-visual.is-playing .project-brand-badge,
+.project-visual.is-playing .project-play,
+.project-visual.is-playing .project-film-caption,
+.project-visual.is-playing .project-film-index { opacity: 0; pointer-events: none; }
+.project-still,.project-brand-badge,.project-play,.project-film-caption,.project-film-index { transition: opacity .35s ease, transform .8s var(--motion-ease), filter .8s ease; }
+.project-visual.is-playing .project-preview { z-index: 5; }
+.project-visual.is-playing .project-film-caption { z-index: 3; }
+
+/* A compact campaign contact stays in reach without covering the work. */
+.floating-whatsapp {
+  position: fixed;
+  z-index: 80;
+  right: clamp(14px, 2.3vw, 34px);
+  bottom: max(18px, env(safe-area-inset-bottom));
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  padding: 12px 15px 12px 12px;
+  border: 1px solid #d0ad7070;
+  border-radius: 999px;
+  color: #f5f0e4;
+  background: #111410e8;
+  box-shadow: 0 12px 38px #0008, 0 0 24px #d0ad7018;
+  font-size: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  backdrop-filter: blur(16px);
+  opacity: 0;
+  transform: translateY(12px) scale(.97);
+  transition: opacity .35s ease, transform .45s var(--motion-ease), border-color .25s, box-shadow .25s;
+}
+.floating-whatsapp[hidden] { display: none; }
+.floating-whatsapp.is-visible { opacity: 1; transform: none; }
+.floating-whatsapp:hover { border-color: var(--film-gold); box-shadow: 0 15px 42px #000a, 0 0 26px #d0ad7038; }
+.floating-whatsapp-icon { display: grid; width: 28px; height: 28px; place-items: center; border-radius: 50%; color: #11120f; background: var(--film-gold); font-size: 15px; }
+.floating-whatsapp b { margin-left: 3px; color: var(--film-gold); }
+
 html { scroll-behavior: smooth; }
 .header {
   position: sticky;
@@ -174,6 +283,10 @@ html { scroll-behavior: smooth; }
 @keyframes rayBreath { from { opacity: .25; transform: rotate(19deg) scaleY(.48) translateX(-16px); } to { opacity: .7; transform: rotate(19deg) scaleY(.9) translateX(12px); } }
 @keyframes orbitSlow { to { transform: rotate(360deg); } }
 @keyframes ctaGlint { 0%, 25% { left: -55%; } 60%, 100% { left: 135%; } }
+@keyframes introOrbit { 0% { opacity: 0; transform: translate(-50%, -50%) scale(.68) rotate(-22deg); } 28% { opacity: .78; } 100% { opacity: .36; transform: translate(-50%, -50%) scale(1.08) rotate(15deg); } }
+@keyframes introCopy { from { opacity: 0; transform: translateY(9px); filter: blur(3px); } to { opacity: 1; transform: none; filter: none; } }
+@keyframes introLine { to { width: 128px; } }
+@keyframes brandCurtain { 0% { clip-path: inset(0); opacity: 1; } 42% { clip-path: inset(0 0 49%); opacity: 1; } 100% { clip-path: inset(0 0 100%); opacity: 0; visibility: hidden; } }
 
 /* Stronger editorial chapter treatment and real project artwork. */
 .hero.section-wrap {
@@ -406,12 +519,16 @@ blockquote { max-width: 800px; font-size: clamp(28px, 4.2vw, 54px); line-height:
   .service-card:hover { transform: translateY(-3px); }
   .step:hover { padding-inline: 0; }
   .approach:after { width: 80vw; right: -45vw; }
+  .project-brand-badge { top: 13px; left: 13px; width: 56px; height: 56px; }
+  .project-play > span { width: 54px; height: 54px; }
+  .floating-whatsapp { right: 12px; bottom: max(12px, env(safe-area-inset-bottom)); padding: 10px 13px 10px 10px; font-size: 9px; }
 }
 @media (prefers-reduced-motion: reduce) {
+  .brand-intro { display: none; animation: none !important; }
   .hero-copy.is-visible h1, .hero-copy.is-visible .eyebrow, .hero-copy.is-visible .hero-intro,
   .hero-copy.is-visible .hero-actions, .hero-copy.is-visible .hero-proof,
   .section-heading.reveal.is-visible > *, .approach-intro.reveal.is-visible,
   .about-copy.reveal.is-visible, .gallery-card.is-visible, .about-visual.is-visible .profile-photo-card,
   .cinema-ray, .approach:after, .campaign-cta:after { animation: none !important; }
-  .service-card, .project-visual, .profile-photo-card, .step { transition: none !important; }
+  .service-card, .project-visual, .profile-photo-card, .step, .project-brand-badge, .project-play, .floating-whatsapp { transition: none !important; }
 }

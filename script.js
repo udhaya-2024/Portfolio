@@ -120,6 +120,65 @@ updateProgress();
 // Low-amplitude camera drift and card parallax add motion without hiding content.
 const cinematicHero = document.querySelector('.hero');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+const brandIntro = document.querySelector('.brand-intro');
+if (brandIntro) {
+  let introSeen = true;
+  try { introSeen = sessionStorage.getItem('signal-story-intro-seen') === 'true'; } catch { /* Storage can be unavailable for local previews. */ }
+  if (introSeen || reducedMotion.matches) {
+    document.body.classList.add('intro-complete');
+  } else {
+    try { sessionStorage.setItem('signal-story-intro-seen', 'true'); } catch { /* The intro still works without saved state. */ }
+    window.setTimeout(() => document.body.classList.add('intro-complete'), 2750);
+  }
+}
+
+document.querySelectorAll('.project-play').forEach(button => {
+  const visual = button.closest('.project-visual');
+  const video = visual.querySelector('.project-preview');
+  const reset = () => {
+    video.pause();
+    video.currentTime = 0;
+    video.hidden = true;
+    visual.classList.remove('is-playing');
+    button.setAttribute('aria-pressed', 'false');
+  };
+  button.addEventListener('click', async () => {
+    if (!video.hidden) {
+      if (video.paused) await video.play();
+      else video.pause();
+      return;
+    }
+    video.hidden = false;
+    visual.classList.add('is-playing');
+    button.setAttribute('aria-pressed', 'true');
+    try { await video.play(); }
+    catch {
+      video.hidden = true;
+      visual.classList.remove('is-playing');
+      button.setAttribute('aria-pressed', 'false');
+    }
+  });
+  video.addEventListener('ended', reset);
+});
+
+const floatingWhatsApp = document.querySelector('.floating-whatsapp');
+if (floatingWhatsApp) {
+  const heroSection = document.querySelector('.hero');
+  const contactSection = document.querySelector('#contact');
+  const visibleSections = new Set();
+  const ctaObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) visibleSections.add(entry.target);
+      else visibleSections.delete(entry.target);
+    });
+    const shouldShow = !visibleSections.has(heroSection) && !visibleSections.has(contactSection);
+    floatingWhatsApp.hidden = !shouldShow;
+    requestAnimationFrame(() => floatingWhatsApp.classList.toggle('is-visible', shouldShow));
+  }, { threshold: 0.12 });
+  ctaObserver.observe(heroSection);
+  ctaObserver.observe(contactSection);
+}
+
 let motionFrame = 0;
 let pointerX = 0;
 let pointerY = 0;
