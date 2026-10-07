@@ -4,7 +4,13 @@ A polished, responsive one-page portfolio for an independent digital marketer fo
 
 ## Run it
 
-Open `index.html` in a browser, or open this folder in Visual Studio Code and use any local static server / Live Preview extension. There is no build step, package installation or framework dependency.
+Open this folder in Visual Studio Code. Install Node.js, then run `npm install` and `npm run dev` in the integrated terminal. Vite prints a local preview URL.
+
+This site uses React and TypeScript for its animated campaign activity, lead visualisation and profile atmosphere. The existing HTML sections, CSS and media paths preserve the supplied portfolio content and keep videos from being copied into the application bundle.
+
+Run `npm run build` to prepare the GitHub Pages version in `site-build/`. Publish the generated `site-build/index.html` and `site-build/assets/signal-story.js` together with the root CSS, script and existing `assets/` media folders.
+
+The activity cards are illustrative previews, not a live connection to Meta. The 339 lead figure remains the total counted from supplied exports for 15 September–4 October 2026.
 
 ## Publish with GitHub Pages
 
