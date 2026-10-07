@@ -24,30 +24,10 @@ export function HeroActivity() {
 }
 
 export function LeadMotion() {
-  const [count, setCount] = useState(0);
-  useEffect(() => {
-    const duration = 1800;
-    let start = 0;
-    let frame = 0;
-    const tick = (time: number) => {
-      if (!start) start = time;
-      const progress = Math.min((time - start) / duration, 1);
-      setCount(Math.round(339 * (1 - (1 - progress) ** 4)));
-      if (progress < 1) frame = requestAnimationFrame(tick);
-    };
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) { frame = requestAnimationFrame(tick); observer.disconnect(); }
-    }, { threshold: 0.25 });
-    const target = document.querySelector('.lead-proof');
-    if (target) observer.observe(target);
-    return () => { observer.disconnect(); cancelAnimationFrame(frame); };
-  }, []);
   return <div className="lead-motion" aria-hidden="true">
-    <div className="lead-motion-head"><span><i /> CAMPAIGN SIGNAL / VISUALISATION</span><span>HISTORICAL EXPORT</span></div>
-    <div className="lead-count-display"><strong>{count}</strong><span>RECORDED<br />SUBMISSIONS</span></div>
+    <div className="lead-motion-head"><span><i /> ACTIVITY TRACE</span><span>CAMPAIGN SIGNAL</span></div>
     <div className="lead-wave"><div className="wave-grid" /><svg viewBox="0 0 700 130" preserveAspectRatio="none"><path className="wave-fill" d="M0 110 C45 105 45 68 95 81 S155 100 195 72 245 92 292 55 340 76 380 41 425 68 465 26 525 62 570 25 630 43 700 4 V130 H0Z" /><path className="wave-line" d="M0 110 C45 105 45 68 95 81 S155 100 195 72 245 92 292 55 340 76 380 41 425 68 465 26 525 62 570 25 630 43 700 4" /></svg><div className="wave-scan" /></div>
-    <div className="lead-live-legend"><span><i className="gold-dot" /> EXPORTED LEAD TOTAL</span><span>SEP 15 — OCT 4, 2026</span></div>
-    <div className="lead-preview-label">ANIMATED VISUALISATION · ACTUAL TOTAL FROM PROVIDED EXPORTS</div>
+    <div className="lead-motion-foot"><span><i className="gold-dot" /> EXPORT VISUALISATION</span><span>✳</span></div>
   </div>;
 }
 
